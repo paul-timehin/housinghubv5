@@ -16,6 +16,8 @@ import com.example.housinghubv6.R;
 import com.example.housinghubv6.Utils.FireBaseMethods;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class StudentSignupActivity extends AppCompatActivity {
@@ -28,8 +30,10 @@ public class StudentSignupActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private EditText editTextFirstName;
     private EditText editTextSurname;
+    private EditText editTextUsername;
 
-    private String email, firstname, lastname, phonenumber, password;
+
+    private String email, firstname, lastname, phonenumber, password,username;
 
 
     private ProgressBar progressBar;
@@ -37,14 +41,30 @@ public class StudentSignupActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FireBaseMethods firebaseMethods;
+    private Boolean isStudent;
+
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference myRef;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_landlord);
+        setContentView(R.layout.activity_signup_student);
         Log.d(TAG, "onCreate: started.");
+        //get the intent that was passed
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                isStudent= false;
+            } else {
+                isStudent= extras.getBoolean("isStudent");
+            }
+        } else {
+            isStudent= (Boolean) savedInstanceState.getSerializable("isStudent");
+        }
+
 
         // Initializes the Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance();
@@ -57,7 +77,6 @@ public class StudentSignupActivity extends AppCompatActivity {
     }
 
     private void init(){
-
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,20 +85,21 @@ public class StudentSignupActivity extends AppCompatActivity {
                 lastname = editTextSurname.getText().toString();
                 password = editTextPassword.getText().toString();
 
-                if(checkInputs(email, firstname,lastname, password)){
+                if(checkInputs(email, firstname,lastname, password,username)){
                     progressBar.setVisibility(View.VISIBLE);
 
-                    firebaseMethods.registerNewEmail(email, password, firstname,lastname,phonenumber);
+                    firebaseMethods.registerNewEmail(email, password, firstname,lastname,phonenumber,isStudent,username);
+
+                    finish();
                 }
             }
         });
-
     }
 
 
-    private boolean checkInputs(String email, String firstname, String lastname, String password){
+    private boolean checkInputs(String email, String firstname, String lastname, String password,String username){
         Log.d(TAG, "checkInputs: checking inputs for null values.");
-        if(email.equals("") || lastname.equals("") || password.equals("")|| firstname.equals("")){
+        if(email.equals("") || lastname.equals("") || password.equals("")|| firstname.equals("")||username.equals("")){
             Toast.makeText(this, "All fields must be filled out.", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -91,20 +111,20 @@ public class StudentSignupActivity extends AppCompatActivity {
         Log.d(TAG, "setUpWidgets: Initializing Widgets.");
 
         // Initialize the progress bar
-        progressBar = (ProgressBar) findViewById(R.id.signuplandlord_progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.signupstudent_progressBar);
         progressBar.setVisibility(View.GONE);
 
         // set all the text boxes and buttons on the page
-        buttonRegister = (Button) findViewById(R.id.btLandlordVerifyAccount);
+        buttonRegister = (Button) findViewById(R.id.btVerifyYourAccountStudent);
         editTextEmail = (EditText) findViewById(R.id.etEmailAddress);
         editTextPassword = (EditText) findViewById(R.id.etPassword);
         editTextFirstName = findViewById(R.id.etFirstname);
         editTextSurname = findViewById(R.id.etSurname);
+        editTextUsername = findViewById(R.id.studentUsername);
 
         //Sets background imageview to the background image within the drawable folder
-        ImageView background = findViewById(R.id.imBackgroundLandlordActivity);
-        background.setImageResource(R.drawable.backgroundhouse);
-
+        //ImageView background = findViewById(R.id.imStudentActivityBackground);
+        //background.setImageResource(R.drawable.backgroundhouse);
     }
 
 
@@ -115,6 +135,8 @@ public class StudentSignupActivity extends AppCompatActivity {
         Log.d(TAG, "setupFirebaseAuth: setting up firebase auth.");
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = firebaseDatabase.getReference();
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
