@@ -36,7 +36,7 @@ public class LandlordSignupActivity extends AppCompatActivity {
     private EditText editTextSurname;
     private EditText editTextPhoneNumber;
 
-    private String email, firstname, lastname, phonenumber, password;
+    private String email, firstname, lastname, password;
 
 
     private ProgressBar progressBar;
@@ -50,7 +50,7 @@ public class LandlordSignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_landlord);
+        setContentView(R.layout.activity_signup_student);
         Log.d(TAG, "onCreate: started.");
 
         // Initializes the Firebase Authentication
@@ -71,12 +71,12 @@ public class LandlordSignupActivity extends AppCompatActivity {
                 email = editTextEmail.getText().toString();
                 firstname = editTextFirstName.getText().toString();
                 lastname = editTextSurname.getText().toString();
-                password = editTextPhoneNumber.getText().toString();
+                password = editTextPassword.getText().toString();
 
                 if(checkInputs(email, firstname,lastname, password)){
                     progressBar.setVisibility(View.VISIBLE);
 
-                    firebaseMethods.registerNewEmail(email, password, firstname,lastname,phonenumber);
+                    firebaseMethods.registerNewEmail(email, password, firstname,lastname);
                 }
             }
         });

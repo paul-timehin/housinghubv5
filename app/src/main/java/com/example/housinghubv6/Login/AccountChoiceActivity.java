@@ -38,6 +38,7 @@ public class AccountChoiceActivity extends AppCompatActivity {
             }
         });
 
+
         //On press the student button will execute the code contained within the onClick function.
         Button landlord = findViewById(R.id.btIsLandlord);
         landlord.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,7 @@ public class AccountChoiceActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
+
+
 }
