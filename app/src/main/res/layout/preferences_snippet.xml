@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/housemate_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of HouseMates"
+
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/budget_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Budget GBP/month"
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="15dp" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preferred location"
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="15dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Edit your profile"
+            android:background="@drawable/rounded_yellow_border"
+            android:textColor="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/editProfileButton"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/number_of_housemates_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/budget_month_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5000"
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="15dp" />
+
+        <TextView
+            android:id="@+id/location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Woking"
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="15dp" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

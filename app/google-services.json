@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1035829774151",
+    "firebase_url": "https://housinghubv6.firebaseio.com",
+    "project_id": "housinghubv6",
+    "storage_bucket": "housinghubv6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035829774151:android:2276c10bf6dc110e",
+        "android_client_info": {
+          "package_name": "com.example.housinghubv6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035829774151-0cf37k5g7kjufttolj8on96dinn4lfu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTYr_p1rjFb4-jot7QSs4sTyTyeJcYMoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035829774151-0cf37k5g7kjufttolj8on96dinn4lfu9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

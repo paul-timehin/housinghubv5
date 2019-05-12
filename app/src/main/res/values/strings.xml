@@ -1,0 +1,45 @@
+<resources>
+    <string name="maps_api_key"> AIzaSyANIdKJXIr1fMZzqCg0QqG43_FOnHAHzAI </string>
+    <string name="app_name">HousingHub</string>
+
+
+    <string name="navigation_drawer_open"> Open navigation drawer </string>
+    <string name="navigation_drawer_close"> Close navigation drawer </string>
+
+    <string name="title">Student Housing Hub</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgotten">Forgotten Password?</string>
+    <string name="account">No account?</string>
+    <string name="login">Log In</string>
+
+    <string name="getstarted">Lets get you started:</string>
+    <string name="accounttype">Are you a...</string>
+    <string name="student">Student?</string>
+    <string name="landlord">Landlord?</string>
+
+    <string name="create">Create your account</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Surname</string>
+    <string name="number">Phone Number (Optional)</string>
+    <string name="email">Email Address</string>
+    <string name="studentemail">Student Email Address</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="verify">Verify your Account</string>
+
+    <string name="enter">Enter your details:</string>
+    <string name="newpassword">New Password</string>
+    <string name="recover">Recover my Account</string>
+
+    <string name="complete">Complete my Verification</string>
+    <string name="landlordnotice">Please note: You will not be able to create any listing until authorised by an admin, this is to ensure our users can guarantee each landlord is legitimate and legally allowed to rent.</string>
+    <string name="landlordinform">Take a photo or upload an image showing your right to be a landlord in the United Kingdom.</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="auth_failed"> Login failed: Invalid Email/Password</string>
+    <string name="auth_success">Success!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

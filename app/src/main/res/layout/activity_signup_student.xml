@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_v6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_v7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1745" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_v8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8255" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05882" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1235" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_hA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.31" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3306" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4208" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.511" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6012" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6914" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8118" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90956" />
+
+    <ImageView
+        android:id="@+id/imStudentActivityBackground"
+        android:layout_width="407dp"
+        android:layout_height="0dp"
+        android:background="@drawable/backgroundhouse"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/background_light" />
+
+
+    <TextView
+        android:id="@+id/tvStudentActivityBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_v6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_v6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h11" />
+
+    <EditText
+        android:id="@+id/etStudentAccountFirstName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="1dp"
+        android:background="#FFFFFF"
+        android:hint="@string/firstname"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h14"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_v6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_v7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h13" />
+
+    <EditText
+        android:id="@+id/etStudentAccountSurname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="1dp"
+        android:background="#FFFFFF"
+        android:hint="@string/lastname"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h14"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_v8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_v6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h13" />
+
+    <EditText
+        android:id="@+id/etStudentEmail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="1dp"
+        android:background="#FFFFFF"
+        android:hint="@string/studentemail"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h16"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_v8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_v7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h15" />
+
+    <EditText
+        android:id="@+id/etStudentPassword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="1dp"
+        android:background="#FFFFFF"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_v6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_v7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h16" />
+
+
+
+    <Button
+        android:id="@+id/btVerifyYourAccountStudent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_primary_border"
+        android:text="@string/verify"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h20"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_v8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_v7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_h19" />
+
+    <ProgressBar
+        android:id="@+id/signupstudent_progressBar"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/etStudentEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imStudentActivityCamera" />
+
+</android.support.constraint.ConstraintLayout>

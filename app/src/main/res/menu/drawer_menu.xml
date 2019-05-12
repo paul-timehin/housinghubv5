@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <!-- This is the sidebar navigation xml, specifies all the menu items -->
+    <group android:checkableBehavior="single">
+        <!-- Home feed -->
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_homefeed"
+            android:title="Home" />
+
+        <!-- Your Group-->
+        <item
+            android:id="@+id/nav_group"
+            android:icon="@drawable/ic_group"
+            android:title="Your Group" />
+
+        <!-- Favourites-->
+        <item
+            android:id="@+id/nav_favourite"
+            android:icon="@drawable/ic_favourite"
+            android:title="Favourites" />
+
+        <!-- Your Account-->
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_account"
+            android:title=" Account " />
+
+        <!-- Settings-->
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Settings" />
+
+
+
+    </group>
+    <!-- SignOut-->
+    <item
+        android:id="@+id/nav_signout_"
+        android:icon="@drawable/ic_signout"
+        android:title="Sign Out" />
+
+    <!-- Help Action-->
+    <item android:title="Have a problem?">
+        <menu>
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_help"
+                android:title="Help" />
+        </menu>
+    </item>
+</menu>
