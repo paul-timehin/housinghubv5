@@ -1,5 +1,6 @@
 package com.example.housinghubv6.Home;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +47,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
 
+    private ProgressDialog progressDialog;
+
 
     /**
      *
@@ -65,6 +68,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setupFirebaseAuth();
 
         setUpNavigationBar(toolbar);
+
+        // initialize the progress dialog
+        progressDialog = new ProgressDialog(this);
     }
 
     private void setupImageGrid(ArrayList<String> imgURLS){
@@ -142,7 +148,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_signout_:
-                // Toast.makeText(this, "Send", Toast.LENGTH_SHORT).show();
+                progressDialog.setMessage("Signing Out User...");
+                progressDialog.show();
+
+                Toast.makeText(this,"Sign out", Toast.LENGTH_SHORT).show();
+
+                firebaseAuth.signOut();
+                progressDialog.hide();
+                finish();
+                Intent intent = new Intent(this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 break;
 
             case R.id.nav_help:
