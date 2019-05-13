@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
     private Context context = LoginActivity.this;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private TextView signUpButton;
     private ProgressBar progressBar;
     private Button btnLogin;
 
@@ -102,6 +101,10 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_success),
                                                 Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
+                                        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                        startActivity(intent);
+
+                                        finish();
                                     }
 
                                     // ...

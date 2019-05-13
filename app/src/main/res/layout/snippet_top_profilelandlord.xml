@@ -29,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="20dp">
+            android:paddingLeft="20dp"
+            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,21 +39,10 @@
                 android:text="FORENAME SURNAME"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/black"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Course"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Year"
-                android:textColor="@color/black"
-                android:textSize="12dp" />
         </LinearLayout>
 
     </LinearLayout>

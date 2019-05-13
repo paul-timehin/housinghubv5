@@ -135,6 +135,7 @@ public class FireBaseMethods {
                 .setValue(user);
 
 
+
         /**
         UserAccountSettings settings = new UserAccountSettings(
                 description,
@@ -146,14 +147,14 @@ public class FireBaseMethods {
                 username,
                 website
         );
-         */
 
-        /**
+
         myRef.child(mContext.getString(R.string.dbname_user_account_settings))
                 .child(userID)
                 .setValue(settings);
 
     }
-         **/
+    **/
     }
+
 }
