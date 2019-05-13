@@ -5,11 +5,16 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.housinghubv6.Models.User;
+import com.example.housinghubv6.Models.UserAccountSettings;
 import com.example.housinghubv6.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class FireBaseMethods {
 
@@ -18,6 +23,8 @@ public class FireBaseMethods {
     //firebase
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference myRef;
     private String userID;
 
     private Context mContext;
@@ -31,6 +38,25 @@ public class FireBaseMethods {
         }
     }
 
+    public boolean checkIfUsernameExists(String username, DataSnapshot datasnapshot){
+        Log.d(TAG, "checkIfUsernameExists: checking if " + username + " already exists.");
+
+        User user = new User();
+
+        for (DataSnapshot ds: datasnapshot.getChildren()){
+            Log.d(TAG, "checkIfUsernameExists: datasnapshot: " + ds);
+
+            user.setUsername(ds.getValue(User.class).getUsername());
+            Log.d(TAG, "checkIfUsernameExists: username: " + user.getUsername());
+
+            if(StringManipulation.expandUsername(user.getUsername()).equals(username)){
+                Log.d(TAG, "checkIfUsernameExists: FOUND A MATCH: " + user.getUsername());
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Firstname and lastname
      * @param email
@@ -39,7 +65,7 @@ public class FireBaseMethods {
      * @param lastname
      * @param phonenumber
      */
-    public void registerNewEmail(final String email, String password, final String firstname, String lastname, String phonenumber){
+    public void registerNewEmail(final String email, String password, final String firstname, String lastname, String phonenumber,boolean isStudent, String username){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -73,7 +99,7 @@ public class FireBaseMethods {
      * @param firstname
      * @param lastname
      */
-    public void registerNewEmail(final String email, String password, final String firstname, String lastname){
+    public void registerNewEmail(final String email, String password, final String firstname, String lastname, boolean  isStudent, String username){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -98,5 +124,36 @@ public class FireBaseMethods {
 
                     }
                 });
+    }
+
+    public void addNewUser(String email, String username, String description, String website, String profile_photo, boolean isStudent){
+
+        User user = new User( userID,  "1",  email,  StringManipulation.condenseUsername(username), isStudent );
+
+        myRef.child(mContext.getString(R.string.dbname_users))
+                .child(userID)
+                .setValue(user);
+
+
+        /**
+        UserAccountSettings settings = new UserAccountSettings(
+                description,
+                username,
+                0,
+                0,
+                0,
+                profile_photo,
+                username,
+                website
+        );
+         */
+
+        /**
+        myRef.child(mContext.getString(R.string.dbname_user_account_settings))
+                .child(userID)
+                .setValue(settings);
+
+    }
+         **/
     }
 }
