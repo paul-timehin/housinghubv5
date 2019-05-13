@@ -126,35 +126,48 @@ public class FireBaseMethods {
                 });
     }
 
-    public void addNewUser(String email, String username, String description, String website, String profile_photo, boolean isStudent){
+    public void addNewUser(String email, String username, String bio, String website, String profile_photo, boolean isStudent){
 
+        //create a new user object with the details
         User user = new User( userID,  "1",  email,  StringManipulation.condenseUsername(username), isStudent );
+
 
         myRef.child(mContext.getString(R.string.dbname_users))
                 .child(userID)
                 .setValue(user);
 
 
+        if(isStudent){
 
-        /**
-        UserAccountSettings settings = new UserAccountSettings(
-                description,
-                username,
-                0,
-                0,
-                0,
-                profile_photo,
-                username,
-                website
-        );
+            UserAccountSettings settings = new UserAccountSettings(
+                    bio,
+                    username,
+                    0,
+                    0,
+                    0,
+                    profile_photo,
+                    username,
+                    website
+            );
+        }else{
+
+        }
 
 
-        myRef.child(mContext.getString(R.string.dbname_user_account_settings))
-                .child(userID)
-                .setValue(settings);
 
-    }
-    **/
+        //check the user type then set the settings
+        if(isStudent){
+            myRef.child(mContext.getString(R.string.dbname_students))
+                    .child(userID)
+                    .setValue(settings);
+        }else{
+            myRef.child(mContext.getString(R.string.dbname_students))
+                    .child(userID)
+                    .setValue(settings);
+        }
+
+
+
     }
 
 }
